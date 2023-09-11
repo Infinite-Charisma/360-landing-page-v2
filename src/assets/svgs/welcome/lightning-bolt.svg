@@ -1,0 +1,15 @@
+<svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Icon/Solid/lightning-bolt">
+<path id="Icon" fill-rule="evenodd" clip-rule="evenodd" d="M14.0607 1.25555C14.5603 1.41302 14.9 1.87627 14.9 2.40004V8.40004L19.7 8.40004C20.1474 8.40004 20.5577 8.64899 20.7644 9.04587C20.971 9.44275 20.9397 9.92163 20.6831 10.2882L12.2831 22.2882C11.9827 22.7173 11.4387 22.902 10.9392 22.7445C10.4397 22.5871 10.1 22.1238 10.1 21.6L10.1 15.6H5.29998C4.85253 15.6 4.44224 15.3511 4.2356 14.9542C4.02897 14.5573 4.0603 14.0784 4.3169 13.7119L12.7169 1.71188C13.0173 1.2828 13.5612 1.09809 14.0607 1.25555Z" fill="url(#paint0_linear_0_622)" stroke="url(#paint1_linear_0_622)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_0_622" x1="16.1689" y1="1.19995" x2="6.27171" y2="2.769" gradientUnits="userSpaceOnUse">
+<stop stop-color="#EB4899"/>
+<stop offset="1" stop-color="#7400FC"/>
+</linearGradient>
+<linearGradient id="paint1_linear_0_622" x1="16.1689" y1="1.19995" x2="6.27171" y2="2.769" gradientUnits="userSpaceOnUse">
+<stop stop-color="#EB4899"/>
+<stop offset="1" stop-color="#7400FC"/>
+</linearGradient>
+</defs>
+</svg>

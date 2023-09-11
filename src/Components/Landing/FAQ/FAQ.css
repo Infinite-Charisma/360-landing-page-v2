@@ -1,0 +1,71 @@
+.faq-row-wrapper .faq-title {
+    padding-bottom: 20px;
+    justify-content: center;
+  }
+  
+  .row-content-text ul {
+    padding-left: 40px;
+    list-style-type: disc;
+  }
+  
+  span {
+    top: auto !important;
+  }
+  
+  @media only screen and (min-width: 1440px) {
+    .faq-row-wrapper .faq-title > h2 > p {
+      font-size: 48px;
+    }
+    .faq-row .row-title .row-title-text {
+      font-size: 32px;
+    }
+  }
+  
+  @media only screen and (max-width: 1440px) {
+    .faq-row-wrapper .faq-title > h2 > p {
+      font-size: 48px;
+    }
+    .faq-row .row-title .row-title-text {
+      font-size: 30px;
+    }
+  }
+  
+  @media only screen and (max-width: 1024px) {
+    .faq-row-wrapper .faq-title > h2 > p {
+      font-size: 36px;
+    }
+    .faq-row .row-title .row-title-text {
+      font-size: 24px;
+    }
+  }
+  
+  @media only screen and (min-width: 640px) {
+    .row-content-text {
+      font-size: 24px !important;
+    }
+  }
+  
+  @media only screen and (max-width: 640px) {
+    .faq-row-wrapper .faq-title > h2 > p {
+      font-size: 28px;
+    }
+    .faq-row .row-title .row-title-text {
+      font-size: 18px;
+    }
+    .row-content-text {
+      font-size: 16px !important;
+    }
+  }
+  
+  @media only screen and (max-width: 390px) {
+    .faq-row-wrapper .faq-title > h2 > p {
+      font-size: 20px;
+    }
+    .faq-row .row-title .row-title-text {
+      font-size: 16px;
+    }
+    .row-content-text {
+      font-size: 12px !important;
+    }
+  }
+  

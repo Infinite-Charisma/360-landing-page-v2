@@ -1,0 +1,122 @@
+.poster {
+  background: linear-gradient(
+    135deg,
+    rgba(66, 67, 70, 0.15) 0.01%,
+    rgba(53, 57, 69, 0.16) 35.42%,
+    rgba(65, 70, 80, 0.03) 100%
+  );
+  backdrop-filter: blur(12.5px);
+}
+
+.progressbar {
+  box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.25) inset;
+}
+.progressbar > div {
+  background: linear-gradient(90deg, #f96020, #7a07ed);
+}
+
+.text-gradient {
+  background: linear-gradient(207deg, #eb4899 0%, #7400fc 100%);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+
+.milestone {
+  background: linear-gradient(207deg, #eb4899 0%, #7400fc 100%);
+}
+
+.chart-gradient {
+  background: linear-gradient(131deg, #ffbf1c 0%, #ff1cf7 46.88%, #00f0ff 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.feature-card-hover {
+  position: relative;
+  background-clip: padding-box;
+}
+
+.feature-card-hover:hover.feature-card-hover:before {
+  display: block;
+}
+
+.feature-card-hover::before {
+  content: "";
+  display: none;
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  bottom: -3px;
+  left: -3px;
+  z-index: -1;
+  border-radius: inherit; /* !importanté */
+  background: linear-gradient(
+    to bottom right,
+    #eb4899 40%,
+    #ea5620 60%,
+    #47484a 80%
+  );
+}
+
+.highcharts-tooltip > span {
+  border-radius: 8px;
+  padding: 4px 8px;
+  background: linear-gradient(
+    133deg,
+    rgba(56, 58, 64, 0.38) 0.01%,
+    rgba(56, 58, 64, 0.7) 35.42%,
+    rgba(56, 58, 64, 0.1) 100%
+  );
+  backdrop-filter: blur(6.403698921203613px);
+}
+
+.tooltip {
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  background: linear-gradient(
+    144deg,
+    rgba(56, 58, 64, 0.83) -2.37%,
+    rgba(56, 58, 64, 0.87) 33.88%,
+    rgba(56, 58, 64, 0.19) 100%
+  );
+}
+
+.modal-style {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #1b1b1b;
+  box-shadow: 24;
+  border-radius: 20px;
+  padding: 30px 30px;
+}
+
+#modal::-webkit-scrollbar {
+  width: 10px;
+  height: 20px;
+}
+
+#modal::-webkit-scrollbar-track {
+  margin: 0 8xp;
+  border-radius: 10px;
+}
+
+#modal::-webkit-scrollbar-thumb {
+  background-color: #47484a;
+  border-radius: 10px;
+  width: 8px;
+  position: absolute;
+  background-repeat: no-repeat;
+  z-index: 9px;
+}
+
+#background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
