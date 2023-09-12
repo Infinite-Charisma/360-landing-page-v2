@@ -193,7 +193,7 @@ const Landing = () => {
         x: -1800,
         scrollTrigger: {
           trigger: ".roadmap",
-          start: 'top center',
+          start: 'center center',
           end: '+=700',
           scrub: true,
         },
@@ -459,7 +459,7 @@ const Landing = () => {
               <div className="absolute left-0 translate-y-[-50%]">
                 <div className="relative w-[60px] h-[60px] rounded-[50%] flex justify-center items-center milestone rotate-[-10deg]">
                   <img src={images.check} alt="check" />
-                  <div className="absolute top-[84px] left-0 w-[300px] sm:w-[400px] bg-dark rounded-[24px] p-4 border border-darkgrey">
+                  <div className="absolute top-[84px] left-0 w-[260px] sm:w-[400px] bg-dark rounded-[24px] p-4 border border-darkgrey">
                     <Text
                       fontColor="gradient"
                       fontSize="24px"
@@ -493,7 +493,7 @@ const Landing = () => {
               <div className="absolute left-0 translate-y-[-50%] translate-x-[600px]">
                 <div className="w-[60px] h-[60px] rounded-[50%] flex justify-center items-center milestone rotate-[-10deg]">
                   <img src={images.check} alt="check" />
-                  <div className="absolute top-[84px] left-0 w-[300px] sm:w-[400px] bg-dark rounded-[24px] p-4 border border-darkgrey">
+                  <div className="absolute top-[84px] left-0 w-[260px] sm:w-[400px] bg-dark rounded-[24px] p-4 border border-darkgrey">
                     <Text
                       fontColor="gradient"
                       fontSize="24px"
@@ -526,7 +526,7 @@ const Landing = () => {
               <div className="absolute left-0 translate-y-[-50%] translate-x-[1200px]">
                 <div className="w-[60px] h-[60px] rounded-[50%] flex justify-center border border-[#38393B] bg-[#1C1D1F] items-center rotate-[-10deg]">
                   <img src={images.clock} alt="check" />
-                  <div className="absolute top-[84px] left-0 w-[300px] sm:w-[400px] bg-dark rounded-[24px] p-4 border border-darkgrey">
+                  <div className="absolute top-[84px] left-0 w-[260px] sm:w-[400px] bg-dark rounded-[24px] p-4 border border-darkgrey">
                     <Text
                       fontColor="white"
                       fontSize="24px"
@@ -555,7 +555,7 @@ const Landing = () => {
               <div className="absolute left-0 translate-y-[-50%] translate-x-[1800px]">
                 <div className="w-[60px] h-[60px] rounded-[50%] flex justify-center items-center border border-[#38393B] bg-[#1C1D1F] rotate-[-10deg]">
                   <img src={images.clock} alt="check" />
-                  <div className="absolute top-[84px] left-0 w-[300px] sm:w-[400px] bg-dark rounded-[24px] p-4 border border-darkgrey">
+                  <div className="absolute top-[84px] left-0 w-[260px] sm:w-[400px] bg-dark rounded-[24px] p-4 border border-darkgrey">
                     <Text
                       fontColor="white"
                       fontSize="24px"
