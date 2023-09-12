@@ -8,22 +8,8 @@ function App() {
 
   return (
     <GlobalLangContext.Provider value={{ langCode, setLangCode }}>
-      <div>
-        {/* <video
-        id="background-video"
-        className="background-video"
-        autoPlay
-        loop
-        muted
-      >
-        <source
-          src="https://worshiphousemedia.s3.amazonaws.com/previews/s/mo/dan/mo/3dlines.mp4"
-          type="video/mp4"
-        />
-      </video> */}
-        <div className="App max-w-[1800px] mx-auto">
-          <Landing />
-        </div>
+      <div className="App max-w-[1800px] mx-auto">
+        <Landing />
       </div>
     </GlobalLangContext.Provider>
   );

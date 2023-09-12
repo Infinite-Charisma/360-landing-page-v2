@@ -22,7 +22,7 @@ const Footer: React.FC<FooterProps> = ({ labelSize }) => {
         />
       </div>
       <div className="mt-[50px] flex justify-center">
-        <a href="https://t.me/foster360" rel="noreferrer" target="_blank">
+        <a href="https://t.me/foster360" rel="noreferrer" target="_blank" className="ease-in duration-200 hover:scale-105">
           <Button background="prime" label="Join now" icon={telegram}/>
         </a>
       </div>

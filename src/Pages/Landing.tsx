@@ -1,4 +1,6 @@
-import { useEffect, useState, useLayoutEffect, useRef } from "react";
+/** Import standard node module*/
+
+import { useEffect, useState, useLayoutEffect, useRef, useMemo } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useTranslation } from "react-i18next";
@@ -6,46 +8,126 @@ import Highcharts from "highcharts";
 import { HighchartsReact } from "highcharts-react-official";
 import Modal from "@mui/material/Modal";
 import { Tilt } from "react-tilt";
+import { Fade } from "react-awesome-reveal";
+
+/** Import custom react component*/
+
 import Header from "../Components/Layout/Header";
 import Footer from "../Components/Layout/Footer";
 import { Button, Text } from "../Components/Common/common";
 import FeatureCard from "../Components/Landing/Features/FeatureCard";
 import { CheckIcon } from "../Components/Landing/Dapp.tsx/CheckIcon";
-import {
-  BigLogo,
-  macboook,
-  alcacor,
-  zanyShy,
-  scalefy,
-  caibo,
-  alca,
-  bringYou,
-  scratch,
-  innov,
-  lightning,
-  whiteLightning,
-  arrowCircle,
-  agreement,
-  icon,
-  document,
-  check,
-  clock,
-  macbook
-} from "../Const/Images";
-import "./Landing.css";
 import FAQ from "../Components/Landing/FAQ/FAQ";
-import { totalOptions } from "../Const/PieChartConfig";
-// import EclipseEffects from "../Components/Effects/EclipsEffects";
+
+/** Import consts*/
+
+import * as images from "../Const/Images";
+import { BaseURL } from "../Const/BaseURL";
+
+/** Import context*/
+
+import { useLangContext } from "../Context/LanguageContext";
+
+/** Import style*/
+
+import "./Landing.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Landing = () => {
   const main = useRef(null);
   const { t } = useTranslation();
+  const { langCode } = useLangContext();
+  const [folder, setFolder] = useState<string>("/en_docs");
   const [titleAlign, setTitleAlign] = useState<string>("start");
   const [title, setTitle] = useState<string>("80px");
   const [subtitle, setSubtitle] = useState<string>("32px");
   const [open, setOpen] = useState(false);
+  const [pieChartLength, setPieChartLength] = useState<number>(300);
+  const totalOptions = useMemo(() => {
+    const _totalOptions: Highcharts.Options = {
+      credits: {
+        enabled: false,
+      },
+      chart: {
+        backgroundColor: "transparent",
+        plotShadow: false,
+        margin: 0,
+        width: pieChartLength,
+        height: pieChartLength,
+      },
+      title: {
+        text: "",
+      },
+      tooltip: {
+        pointFormat: "<b>{point.name}</b>: {point.percentage:.1f} %",
+        useHTML: true,
+        backgroundColor: "none",
+        style: {
+          color: "#FFFFFF",
+        },
+      },
+      accessibility: {
+        point: {
+          valueSuffix: "%",
+        },
+      },
+      plotOptions: {
+        pie: {
+          allowPointSelect: true,
+          cursor: "pointer",
+          dataLabels: {
+            distance: -30,
+            enabled: false,
+          },
+          startAngle: 225,
+          center: ["50%", "50%"],
+          borderColor: "transparent",
+        },
+      },
+      series: [
+        {
+          type: "pie",
+          name: "Pool Value",
+          innerSize: "70%",
+          data: [
+            {
+              y: 40,
+              name: "Public sale",
+              sliced: true,
+              color: "#EB4899",
+            },
+            {
+              y: 10,
+              name: "Team",
+              color: "#8C3DE6",
+            },
+            {
+              y: 10,
+              name: "Treasury",
+              color: "#F5AC37",
+            },
+            {
+              y: 10,
+              name: "Marketing",
+              color: "#28E0B9",
+            },
+            {
+              y: 15,
+              name: "Airdrop",
+              color: "#1C1D1F",
+            },
+            {
+              y: 15,
+              name: "Liquidity pool",
+              color: "#47484A",
+            },
+          ],
+        },
+      ],
+    };
+    return _totalOptions;
+  }, [pieChartLength]);
 
   const handleOpen = () => {
     if (!window.ethereum) {
@@ -54,6 +136,7 @@ const Landing = () => {
       window.open("https://360dapp.netlify.app/trade");
     }
   };
+
   const handleClose = () => {
     setOpen(false);
   };
@@ -74,14 +157,35 @@ const Landing = () => {
     if (innerWidth < 640) {
       setTitle("40px");
       setSubtitle("20px");
+      setPieChartLength(300);
     } else if (innerWidth < 1280) {
       setTitle("60px");
       setSubtitle("28px");
+      setPieChartLength(500);
     } else {
       setTitle("80px");
       setSubtitle("32px");
+      setPieChartLength(600);
     }
   };
+
+  const openTokenomics = () => {
+    window.open(BaseURL + folder + "/tokenomics.pdf");
+  }
+
+  const openWP = () => {
+    window.open(BaseURL + folder + "/whitepaper.pdf");
+  }
+
+  useEffect(() => {
+    if (langCode === "cn") {
+      setFolder("/cn_docs");
+    } else if (langCode === "fr") {
+      setFolder("/fr_docs");
+    } else if (langCode === "en") {
+      setFolder("/en_docs");
+    }
+  }, [langCode]);
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -90,12 +194,12 @@ const Landing = () => {
         scrollTrigger: {
           trigger: ".roadmap",
           start: 'top center',
-          end: '+=1000',
+          end: '+=700',
           scrub: true,
         },
       });
-    }, main); // <- Scope!
-    return () => ctx.revert(); // <- Cleanup!
+    }, main);
+    return () => ctx.revert();
   }, []);
 
   useEffect(() => {
@@ -134,22 +238,22 @@ const Landing = () => {
                 textAlign={titleAlign}
               />
             </div>
-            <div onClick={handleOpen}>
+            <div onClick={handleOpen} className="ease-out duration-200 hover:scale-105">
               <Button
                 background="prime"
                 label={t("Buy 360")}
-                icon={whiteLightning}
+                icon={images.whiteLightning}
               />
             </div>
           </div>
           <div className="w-full flex justify-center">
-            <img src={macbook} alt="macbook" />
+            <img src={images.macbook} alt="macbook" />
           </div>
         </div>
         <div className="flex justify-center">
           <div className="px-[20px] py-[56px] flex flex-col justify-between gap-[32px] rounded-[10px] max-w-[900px] poster xl:px-[40px]">
               <div className="absolute top-[10px] left-[20px] p-2 bg-dark border-darkgrey rounded-[8px]">
-                <img src={lightning} alt="lightning" />
+                <img src={images.lightning} alt="lightning" />
               </div>
               <div className="flex flex-col gap-[16px]">
                 <div className="w-[263px] mx-auto lg:w-[800px]">
@@ -205,9 +309,9 @@ const Landing = () => {
                 speed: 450
               }}
             >
-              <div className="shadow-airdrop-feature relative h-full">
+              <div className="shadow-effects relative h-full">
                 <FeatureCard
-                  src={agreement}
+                  src={images.agreement}
                   label={t("Liquidity Provision & Staking")}
                   labelAlign="center"
                   labelSize={subtitle}
@@ -228,9 +332,9 @@ const Landing = () => {
                 speed: 250
               }}
             >
-              <div className="shadow-airdrop-feature relative h-full">
+              <div className="shadow-effects relative h-full">
                 <FeatureCard
-                  src={icon}
+                  src={images.icon}
                   label={t("Airdrop Strategy")}
                   labelAlign="center"
                   labelSize={subtitle}
@@ -249,9 +353,9 @@ const Landing = () => {
                 speed: 250
               }}
             >
-              <div className="shadow-airdrop-feature relative h-full">
+              <div className="shadow-effects relative h-full">
                 <FeatureCard
-                  src={document}
+                  src={images.document}
                   label={t("Affiliate Marketing Program")}
                   labelAlign="center"
                   labelSize={subtitle}
@@ -267,7 +371,7 @@ const Landing = () => {
         {/* Ecosystem */}
         <div
           id="ecosystem"
-          className="my-[150px] flex flex-col gap-[64px] justify-between items-center xl:flex-row"
+          className="my-[150px] flex flex-col gap-[64px] justify-between items-center xl:flex-row relative"
         >
           <div className="flex flex-col">
             <div className="my-4">
@@ -293,18 +397,18 @@ const Landing = () => {
               />
             </div>
             <div className="mt-[30px] flex flex-col gap-[16px] sm:flex-row">
-              <div className="flex justify-center">
+              <div className="flex justify-center ease-out duration-200 hover:scale-105" onClick={openTokenomics}>
                 <Button
                   background="prime"
                   label="Tokenomics"
-                  icon={whiteLightning}
+                  icon={images.whiteLightning}
               />
               </div>
-              <div className="flex justify-center">
+              <div className="flex justify-center ease-out duration-200 hover:scale-105" onClick={openWP}>
                 <Button
                   background="dark"
                   label="Whitepaper"
-                  icon={arrowCircle}
+                  icon={images.arrowCircle}
               />
               </div>
             </div>
@@ -312,20 +416,20 @@ const Landing = () => {
           <div className="relative">
             <HighchartsReact options={totalOptions} highcharts={Highcharts} />
             <div className="absolute top-0 left-0 right-0 bottom-0 flex flex-col items-center justify-center z-[-10]">
-              <p className="text-[14px] font-normal leading-normal text-[#FFF]">
+              <p className="text-[30px] font-normal leading-normal text-[#FFF] sm:text-[48px]">
                 {t("Total supply")}
               </p>
-              <p className="max-sm:text-[14px] chart-gradient text-[24px] font-bold leading-normal">
+              <p className="text-[30px] chart-gradient font-bold leading-normal sm:text-[48px]">
                 1,000,000,000
               </p>
-              <p className="text-[14px] font-normal leading-normal text-[#FFF]">
+              <p className="font-normal leading-normal text-[#FFF] sm:text-[28px]">
                 {t("[1 billion] 360 Tokens")}
               </p>
             </div>
           </div>
         </div>
         {/* RoadMap */}
-                 {/* <div className="my-[150px]">
+        <div className="my-[150px]">
           <Text
             fontColor="white"
             fontSize={title}
@@ -342,7 +446,7 @@ const Landing = () => {
                 fontColor="white"
                 fontSize="20px"
                 label={t(
-                  "We’ve got an even more incredible future ahead with emphasis on user-driven development."
+                  "Join us on an incredible journey in web3 with emphasis on user-driven development."
                 )}
                 fontWeight="normal"
                 lineHight="150%"
@@ -354,8 +458,8 @@ const Landing = () => {
             <div className="w-[1800px] h-[2px] bg-grey relative rotate-[10deg] mt-[200px] roadmap">
               <div className="absolute left-0 translate-y-[-50%]">
                 <div className="relative w-[60px] h-[60px] rounded-[50%] flex justify-center items-center milestone rotate-[-10deg]">
-                  <img src={check} alt="check" />
-                  <div className="absolute top-[84px] left-0 w-[300px] sm:w-[400px]">
+                  <img src={images.check} alt="check" />
+                  <div className="absolute top-[84px] left-0 w-[300px] sm:w-[400px] bg-dark rounded-[24px] p-4 border border-darkgrey">
                     <Text
                       fontColor="gradient"
                       fontSize="24px"
@@ -388,8 +492,8 @@ const Landing = () => {
               </div>
               <div className="absolute left-0 translate-y-[-50%] translate-x-[600px]">
                 <div className="w-[60px] h-[60px] rounded-[50%] flex justify-center items-center milestone rotate-[-10deg]">
-                  <img src={check} alt="check" />
-                  <div className="absolute top-[84px] left-0 w-[400px]">
+                  <img src={images.check} alt="check" />
+                  <div className="absolute top-[84px] left-0 w-[300px] sm:w-[400px] bg-dark rounded-[24px] p-4 border border-darkgrey">
                     <Text
                       fontColor="gradient"
                       fontSize="24px"
@@ -421,8 +525,8 @@ const Landing = () => {
               </div>
               <div className="absolute left-0 translate-y-[-50%] translate-x-[1200px]">
                 <div className="w-[60px] h-[60px] rounded-[50%] flex justify-center border border-[#38393B] bg-[#1C1D1F] items-center rotate-[-10deg]">
-                  <img src={clock} alt="check" />
-                  <div className="absolute top-[84px] left-0 w-[400px]">
+                  <img src={images.clock} alt="check" />
+                  <div className="absolute top-[84px] left-0 w-[300px] sm:w-[400px] bg-dark rounded-[24px] p-4 border border-darkgrey">
                     <Text
                       fontColor="white"
                       fontSize="24px"
@@ -450,8 +554,8 @@ const Landing = () => {
               </div>
               <div className="absolute left-0 translate-y-[-50%] translate-x-[1800px]">
                 <div className="w-[60px] h-[60px] rounded-[50%] flex justify-center items-center border border-[#38393B] bg-[#1C1D1F] rotate-[-10deg]">
-                  <img src={clock} alt="check" />
-                  <div className="absolute top-[84px] left-0 w-[400px]">
+                  <img src={images.clock} alt="check" />
+                  <div className="absolute top-[84px] left-0 w-[300px] sm:w-[400px] bg-dark rounded-[24px] p-4 border border-darkgrey">
                     <Text
                       fontColor="white"
                       fontSize="24px"
@@ -476,7 +580,7 @@ const Landing = () => {
               </div>
             </div>
           </div>
-        </div> */}
+        </div>
         {/* Dapp */}
         <div className="mt-[350px] mb-[150px]">
           <Text
@@ -484,8 +588,8 @@ const Landing = () => {
             fontWeight="bold"
             fontSize={title}
             lineHight="100%"
-            label={t("360 Web3 are Coming")}
-            highlightText={t("Coming")}
+            label={t("Get ready for easy web3 with 360")}
+            highlightText={t("web3")}
             highlightColor="gradient"
             textAlign="center"
           />
@@ -497,7 +601,7 @@ const Landing = () => {
                 fontSize={subtitle}
                 lineHight="120%"
                 label={t(
-                  "Launching easy Web3 for your crypto financial. Build to supporting an effortless Web3 Asset management with the best features like:"
+                  "Launching easy web3 for your crypto finances. Built to support effortless web3 asset management with features like:"
                 )}
               />
               <div className="mt-[16px]">
@@ -552,19 +656,19 @@ const Landing = () => {
                   />
                 </div>
                 <div
-                  className="mt-[24px] flex justify-center w-fit xl:justify-start"
+                  className="mt-[24px] flex justify-center w-fit xl:justify-start ease-out duration-200 hover:scale-105"
                   onClick={launchDapp}
                 >
                   <Button
                     background="prime"
                     label={t("Launch app")}
-                    icon={arrowCircle}
+                    icon={images.arrowCircle}
                   />
                 </div>
               </div>
             </div>
             <div className="flex justify-center">
-              <img src={macboook} alt="macbook" />
+              <img src={images.macboook} alt="macbook" />
             </div>
           </div>
         </div>
@@ -580,36 +684,55 @@ const Landing = () => {
             highlightColor="gradient"
             textAlign="center"
           />
-          <div className="mt-[64px] flex flex-wrap gap-6 justify-center items-center">
-            <div className="bg-dark rounded-[8px] border border-darkgrey">
-              <img src={alcacor} alt="alcacor" className="p-[20px]" />
-            </div>
-            <div className="bg-dark rounded-[8px] border border-darkgrey">
-              <img src={zanyShy} alt="alcacor" className="p-[20px]" />
-            </div>
-            <div className="bg-dark rounded-[8px] border border-darkgrey">
-              <img src={scalefy} alt="alcacor" className="p-[20px]" />
-            </div>
-            <div className="bg-dark rounded-[8px] border border-darkgrey">
-              <img src={caibo} alt="alcacor" className="p-[20px]" />
-            </div>
-            <div className="bg-dark rounded-[8px] border border-darkgrey">
-              <img src={innov} alt="alcacor" className="p-[20px]" />
-            </div>
-            <div className="bg-dark rounded-[8px] border border-darkgrey">
-              <img src={scratch} alt="alcacor" className="p-[20px]" />
-            </div>
-            <div className="bg-dark rounded-[8px] border border-darkgrey">
-              <img src={bringYou} alt="alcacor" className="p-[20px]" />
-            </div>
-            <div className="bg-dark rounded-[8px] border border-darkgrey">
-              <img src={alca} alt="alcacor" className="p-[20px]" />
-            </div>
+          <div className="mt-[64px] relative flex flex-wrap gap-6 justify-center items-center">
+            <Fade duration={2000} direction="right">
+              <div className="bg-dark rounded-[8px] border border-darkgrey cursor-pointer">
+                <img src={images.alcacor} alt="alcacor" className="p-[20px]" />
+              </div>
+            </Fade>
+            <Fade duration={2000} direction="right">
+              <div className="bg-dark rounded-[8px] border border-darkgrey cursor-pointer">
+                <img src={images.zanyShy} alt="zanyShy" className="p-[20px]" />
+              </div>
+            </Fade>
+            <Fade duration={2000} direction="right">
+              <div className="bg-dark rounded-[8px] border border-darkgrey cursor-pointer">
+                <img src={images.scalefy} alt="scalefy" className="p-[20px]" />
+              </div>
+            </Fade>
+            <Fade duration={2000} direction="right">
+              <div className="bg-dark rounded-[8px] border border-darkgrey cursor-pointer">
+                <img src={images.caibo} alt="caibo" className="p-[20px]" />
+              </div>
+            </Fade>
+            <Fade duration={2000} direction="left">
+              <div className="bg-dark rounded-[8px] border border-darkgrey cursor-pointer">
+                <img src={images.innov} alt="innov" className="p-[20px]" />
+              </div>
+            </Fade>
+            <Fade duration={2000} direction="left">
+              <div className="bg-dark rounded-[8px] border border-darkgrey cursor-pointer">
+                <img src={images.scratch} alt="scratch" className="p-[20px]" />
+              </div>
+            </Fade>
+            <Fade duration={2000} direction="left">
+              <div className="bg-dark rounded-[8px] border border-darkgrey cursor-pointer">
+                <img src={images.bringYou} alt="bringYou" className="p-[20px]" />
+              </div>
+            </Fade>
+            <Fade duration={2000} direction="left">
+              <div className="bg-dark rounded-[8px] border border-darkgrey cursor-pointer">
+                <img src={images.alca} alt="alca" className="p-[20px]" />
+              </div>
+            </Fade>
+            <Fade duration={3000}>
+              <div className="glow-effects absolute bottom-0 right-0 translate-y-[100%] w-[500px] h-[500px] z-[-15]"></div>
+            </Fade>
           </div>
         </div>
         {/* FAQ */}
         <div className="my-[150px] xl:flex xl:justify-between xl:gap-[64px]">
-          <div className="flex flex-col gap-[16px] py-[20px] xl:min-w-[420px]">
+          <div className="flex flex-col gap-[16px] py-[20px] h-fit xl:min-w-[420px]">
             <Text
               fontColor="white"
               fontSize={title}

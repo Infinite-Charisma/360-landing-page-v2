@@ -116,21 +116,25 @@
   z-index: -1;
 }
 
-.shadow-airdrop-feature {
+.shadow-effects, .glow-effects {
   position: relative;
   z-index: 0;
 }
 
-.shadow-airdrop-feature:before {
+.shadow-effects:before, .glow-effects::before {
   content:"";
   position: absolute;
   inset: 0;
-  border-radius: 25%;
+  border-radius: 50%;
   filter: blur(60px);
   transform: scale(0.8, 0.8);
   z-index: -10;
 }
 
-.shadow-airdrop-feature:before {
-  background: linear-gradient(90deg, #FF1EB5, #541F99 64.97%);
+.shadow-effects:before, .glow-effects::before {
+  background: linear-gradient(90deg, #FF1EB5, #541F99 80%);
+}
+
+.glow-effects {
+  filter: blur(200px);
 }

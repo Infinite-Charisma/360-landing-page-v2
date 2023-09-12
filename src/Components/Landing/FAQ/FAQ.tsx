@@ -8,7 +8,7 @@ import { BaseURL } from "../../../Const/BaseURL";
 const styles = {
   bgColor: "transparent",
   titleTextColor: "#FFFFFF",
-  rowTitleColor: "#EB4899",
+  rowTitleColor: "#FFFFFF",
   rowContentColor: "#FFFFFF",
   arrowColor: "#FFFFFF",
   transitionDuration: "1s",
