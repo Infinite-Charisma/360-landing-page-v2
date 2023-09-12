@@ -19,6 +19,7 @@ interface TextProps {
 
 interface TooltipProps {
   label: string;
+  sublabel?: string;
   pinColor: string;
   pinPosition: string;
 }
@@ -134,7 +135,7 @@ const Text: React.FC<TextProps> = ({
   );
 };
 
-const Tooltip: React.FC<TooltipProps> = ({ label, pinColor, pinPosition }) => {
+const Tooltip: React.FC<TooltipProps> = ({ label, sublabel, pinColor, pinPosition }) => {
   const [color, setColor] = useState<string>("");
   const [pos, setPos] = useState<string>("");
   const [mgn, setMgn] = useState<string>("");
@@ -173,8 +174,14 @@ const Tooltip: React.FC<TooltipProps> = ({ label, pinColor, pinPosition }) => {
     }
   }, [pinPosition]);
   return (
-    <div className="flex justify-between gap-[4px] tooltip p-1 text-[12px] max-w-[100px]">
-      <p className={`font-bold leading-[14px] p-1 text-white ${mgn}`}>{label}</p>
+    <div className="flex justify-between gap-[4px] tooltip p-1 text-[14px] max-w-[100px] sm:w-fit">
+      <div className="p-1">
+        <p className={`font-bold leading-[14px] text-white ${mgn}`}>{label}</p>
+        {
+          sublabel && <p className={`font-normal leading-[12px] pt-1 text-white text-[12px] ${mgn}`}>{sublabel}</p>
+        }
+      </div>
+      
       <div className={`fixed w-2 h-2 rounded-[50%]  ${color} ${pos}`}></div>
     </div>
   );

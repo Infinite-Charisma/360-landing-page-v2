@@ -1,11 +1,6 @@
 .poster {
-  background: linear-gradient(
-    135deg,
-    rgba(66, 67, 70, 0.15) 0.01%,
-    rgba(53, 57, 69, 0.16) 35.42%,
-    rgba(65, 70, 80, 0.03) 100%
-  );
-  backdrop-filter: blur(12.5px);
+  background: linear-gradient(146deg, rgba(66, 67, 70, 0.15) 0.01%, rgba(53, 57, 69, 0.16) 34.02%, rgba(65, 70, 80, 0.03) 96.06%);
+  backdrop-filter: blur(4px);
 }
 
 .progressbar {
@@ -119,4 +114,23 @@
   width: 100%;
   height: 100%;
   z-index: -1;
+}
+
+.shadow-airdrop-feature {
+  position: relative;
+  z-index: 0;
+}
+
+.shadow-airdrop-feature:before {
+  content:"";
+  position: absolute;
+  inset: 0;
+  border-radius: 25%;
+  filter: blur(60px);
+  transform: scale(0.8, 0.8);
+  z-index: -10;
+}
+
+.shadow-airdrop-feature:before {
+  background: linear-gradient(90deg, #FF1EB5, #541F99 64.97%);
 }

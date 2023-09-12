@@ -11,6 +11,7 @@ import scratch from "../assets/images/partners/scratch.png";
 import zanyShy from "../assets/images/partners/zany_and_shy.png";
 
 import lightning from "../assets/svgs/welcome/lightning-bolt.svg";
+import macbook from "../assets/images/welcome/MacBook.png";
 import whiteLightning from "../assets/svgs/welcome/white-lightning-bolt.svg";
 import arrowCircle from "../assets/svgs/ecosystem/arrow-circle-right.svg";
 import telegram from "../assets/svgs/footer/Telegram.svg";
@@ -44,5 +45,6 @@ export {
   x,
   menu,
   check,
-  clock
+  clock,
+  macbook
 };

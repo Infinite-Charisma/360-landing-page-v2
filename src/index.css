@@ -14,7 +14,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   margin: 0;
-  font-family: 'TT Octosquares Trl';
+  font-family: 'Oxanium';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -22,5 +22,5 @@ body {
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+    monospace, Oxanium;
 }

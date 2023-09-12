@@ -32,27 +32,27 @@ const Header = () => {
           <div>
             <ul className="flex gap-[48px]">
               <li>
-                <a href="#home" className="scroll-smooth">{t("Home")}</a>
+                <a href="#home" className="scroll-smooth cursor-pointer">{t("Home")}</a>
               </li>
               <li>
-                <a href="#feature" className="scroll-smooth">{t("Feature")}</a>
+                <a href="#feature" className="scroll-smooth cursor-pointer">{t("Feature")}</a>
               </li>
               <li>
-                <a href="#ecosystem">{t("Ecosystem")}</a>
+                <a href="#ecosystem" className="scroll-smooth cursor-pointer">{t("Ecosystem")}</a>
               </li>
               <li>
-                <a href="#roadmap">{t("Roadmap")}</a>
+                <a href="#roadmap" className="scroll-smooth cursor-pointer">{t("Roadmap")}</a>
               </li>
               <li>
-                <a href="#partners">{t("Partners")}</a>
+                <a href="#partners" className="scroll-smooth cursor-pointer">{t("Partners")}</a>
               </li>
             </ul>
           </div>
-          <div className="flex gap-[10px] justify-center items-center">
+          <div className="flex gap-[10px] justify-center items-center cursor-pointer">
             <div>
               <select
                 defaultValue={i18n.language}
-                className="px-6 py-4 bg-[transparent]"
+                className="px-6 py-4 bg-[transparent] focus-visible:outline-none"
                 onChange={onChangeLang}
               >
                 {LANGUAGES.map(({ code, label }) => (
@@ -77,7 +77,7 @@ const Header = () => {
           <div className="text-white text-[20px]">
             <select
               defaultValue={i18n.language}
-              className="px-6 py-4 bg-[transparent]"
+              className="px-6 py-4 bg-[transparent] focus-visible:outline-none"
               onChange={onChangeLang}
             >
               {LANGUAGES.map(({ code, label }) => (

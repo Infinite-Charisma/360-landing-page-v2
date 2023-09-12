@@ -1,3 +1,4 @@
+import React from "react";
 import { Text, Tooltip } from "../../Common/common";
 
 type Props = {
@@ -8,16 +9,16 @@ type Props = {
   lists: string[];
 };
 
-const FeatureCard = ({ src, label, lists, labelAlign, labelSize }: Props) => {
+const FeatureCard:React.FC<Props> = ({ src, label, lists, labelAlign, labelSize }) => {
   return (
-    <div className="flex flex-col items-center gap-[24px] p-[32px] rounded-[24px] border border-darkgrey text-white bg-[#1C1D1F] hover:cursor-pointer feature-card-hover">
+    <div className="h-full flex flex-col items-center gap-[24px] p-[32px] rounded-[24px] border border-darkgrey text-white bg-[#1C1D1F] hover:cursor-pointer">
       <div className="flex justify-center items-center bg-black p-8 w-[164px] h-[164px] rounded-[24px] relative">
         <img src={src} alt="feature" />
         {label === "Liquidity Provision & Staking" && (
           <>
             <div className="absolute top-0 left-0 translate-x-[-40%] translate-y-[100%]">
               <Tooltip
-                label="Get Reward"
+                label="Get rewards"
                 pinColor="secondary"
                 pinPosition="right bottom"
               />
@@ -31,7 +32,7 @@ const FeatureCard = ({ src, label, lists, labelAlign, labelSize }: Props) => {
             </div>
             <div className="absolute bottom-0 right-0 translate-y-[30%] translate-x-[10%]">
               <Tooltip
-                label="Extra token"
+                label="Boost your tokens"
                 pinColor="tertiary2"
                 pinPosition="left top"
               />
@@ -54,11 +55,12 @@ const FeatureCard = ({ src, label, lists, labelAlign, labelSize }: Props) => {
             <div className="absolute top-0 left-0 translate-x-[-40%]">
               <Tooltip
                 label="Up to 1000 tokens"
+                sublabel="to hold and stake"
                 pinColor="yellow"
                 pinPosition="right bottom"
               />
             </div>
-            <div className="absolute bottom-0 right-0 translate-x-[60%] translate-y-[-30px]">
+            <div className="absolute bottom-0 right-0 translate-x-[50%] translate-y-[-30px]">
               <Tooltip
                 label="Earn Commission"
                 pinColor="prime"
