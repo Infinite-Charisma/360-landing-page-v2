@@ -65,6 +65,7 @@ const Landing = () => {
         backgroundColor: "none",
         style: {
           color: "#FFFFFF",
+          fontSize: "24px"
         },
       },
       accessibility: {
@@ -194,7 +195,7 @@ const Landing = () => {
         scrollTrigger: {
           trigger: ".roadmap",
           start: 'center center',
-          end: '+=700',
+          end: 'bottom top',
           scrub: true,
         },
       });

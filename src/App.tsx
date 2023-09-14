@@ -1,10 +1,16 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { GlobalLangContext } from "./Context/LanguageContext";
 import Landing from "./Pages/Landing";
+import { Crisp } from "crisp-sdk-web";
+import { CRISP_WEBSITE_ID } from "./Const/Keys";
 import "./App.css";
 
 function App() {
   const [langCode, setLangCode] = useState<string>("en");
+
+  useEffect(() => {
+    Crisp.configure(CRISP_WEBSITE_ID);
+  }, []);
 
   return (
     <GlobalLangContext.Provider value={{ langCode, setLangCode }}>
