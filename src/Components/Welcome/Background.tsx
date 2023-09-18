@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import { CSSProperties } from "react";
 import animation from "./css/export.module.css";
 import "./Background.css";
@@ -8,19 +8,9 @@ interface MyCustomCSS extends CSSProperties {
 }
 
 function Background() {
-  let width = window.innerWidth;
   const elecRef = useRef<HTMLDivElement>(null);
-  const [mask, setMask] = useState<string>("mask");
 
   const array = new Array(36).fill(1);
-
-  useEffect(() => {
-    if (width < 640) {
-      setMask("small-mask")
-    } else (
-      setMask("mask")
-    )
-  }, [width]);
 
   return (
     <div
