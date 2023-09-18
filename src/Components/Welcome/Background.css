@@ -3,11 +3,11 @@
 }
 
 .mask {
-  mask-image: url(../src/assets/mask.png);
+  mask-image: url(../../assets/images/mask/mask.png);
 }
 
 .small-mask {
-  mask-image: url(../src/assets/smallMask.png);
+  mask-image: url(../../assets/images/mask/smallMask.png);
 }
 
 .perspective {
