@@ -37,7 +37,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Landing = () => {
   const main = useRef(null);
-  // const mp4 = useRef(null);
+
   const { t } = useTranslation();
   const { langCode } = useLangContext();
   const [folder, setFolder] = useState<string>("/en_docs");
@@ -180,6 +180,8 @@ const Landing = () => {
     window.open(BaseURL + folder + "/whitepaper.pdf");
   }
 
+  const tl = useRef();
+
   useEffect(() => {
     if (langCode === "cn") {
       setFolder("/cn_docs");
@@ -191,24 +193,27 @@ const Landing = () => {
   }, [langCode]);
 
   useLayoutEffect(() => {
+    let tl: GSAPTimeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".roadmap",
+        start: 'center center',
+        // end: 'bottom top',
+        end: '+=800',
+        scrub: 5,
+      },
+    });
     const ctx = gsap.context(() => {
-      gsap.to(".roadmap", {
-        x: -1800,
-        scrollTrigger: {
-          trigger: ".roadmap",
-          start: 'center center',
-          end: 'bottom top',
-          scrub: true,
-        },
+      tl.to(".roadmap", {
+          x: -1800,
       });
     }, main);
-    return () => ctx.revert();
+    return () => {
+      ctx.revert();
+      tl.progress(0).kill();
+    }
   }, []);
 
   useEffect(() => {
-    // if (mp4.current) {
-    //   (mp4.current as any).playbackRate = 0.3;
-    // }
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
@@ -279,8 +284,8 @@ const Landing = () => {
                       fontSize={subtitle}
                       fontWeight="bold"
                       lineHight="100%"
-                      label={t("round 1")}
-                      highlightText="1"
+                      label={t("round 2")}
+                      highlightText="2"
                       highlightColor="prime"
                       textAlign="center"
                     />
@@ -503,11 +508,11 @@ const Landing = () => {
                 </div>
               </div>
               <div className="absolute left-0 translate-y-[-50%] translate-x-[600px]">
-                <div className="w-[60px] h-[60px] rounded-[50%] flex justify-center items-center milestone rotate-[-10deg]">
-                  <img src={images.check} alt="check" />
+                <div className="w-[60px] h-[60px] rounded-[50%] flex justify-center border border-[#38393B] bg-[#1C1D1F] items-center rotate-[-10deg]">
+                  <img src={images.clock} alt="check" />
                   <div className="absolute top-[84px] left-0 w-[260px] sm:w-[400px] bg-dark rounded-[24px] p-4 border border-darkgrey">
                     <Text
-                      fontColor="gradient"
+                      fontColor="white"
                       fontSize="24px"
                       label={t("Q4 2023")}
                       fontWeight="bold"
