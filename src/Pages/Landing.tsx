@@ -158,7 +158,7 @@ const Landing = () => {
     }
     //text main title font size
     if (innerWidth < 640) {
-      setTitle("40px");
+      setTitle("36px");
       setSubtitle("20px");
       setPieChartLength(300);
     } else if (innerWidth < 1280) {
@@ -180,7 +180,6 @@ const Landing = () => {
     window.open(BaseURL + folder + "/whitepaper.pdf");
   }
 
-  const tl = useRef();
 
   useEffect(() => {
     if (langCode === "cn") {
@@ -197,8 +196,7 @@ const Landing = () => {
       scrollTrigger: {
         trigger: ".roadmap",
         start: 'center center',
-        // end: 'bottom top',
-        end: '+=800',
+        end: 'bottom top',
         scrub: 5,
       },
     });
@@ -222,7 +220,7 @@ const Landing = () => {
   return (
     <>
       <Header />
-      <div className="px-[30px] md:px-[60px] xl:px-[120px]">
+      <div className="mx-[20px] md:mx-[60px] xl:mx-[120px]">
         {/* Welcome */}
         <div className="relative">
           <div
@@ -263,7 +261,7 @@ const Landing = () => {
             </div>
           </div>
           <div className="flex justify-center">
-            <div className="px-[20px] py-[56px] flex flex-col justify-between gap-[32px] rounded-[10px] max-w-[900px] poster xl:px-[40px]">
+            <div className="px-[20px] py-[56px] flex flex-col justify-between gap-[32px] rounded-[10px] max-w-[900px] poster xl:px-[40px] relative">
                 <div className="absolute top-[10px] left-[20px] p-2 bg-dark border-darkgrey rounded-[8px]">
                   <img src={images.lightning} alt="lightning" />
                 </div>
@@ -453,7 +451,7 @@ const Landing = () => {
             label={t("360 Roadmap")}
             fontWeight="bold"
             highlightText={t("Roadmap")}
-            highlightColor="prime"
+            highlightColor="gradient"
             lineHight="100%"
             textAlign="end"
           />
@@ -472,11 +470,11 @@ const Landing = () => {
             </div>
           </div>
           <div ref={main} className="pt-[150px] pb-[200px]">
-            <div className="w-[1800px] h-[2px] bg-grey relative rotate-[10deg] mt-[200px] roadmap">
+            <div className="w-[1800px] h-[2px] bg-grey relative rotate-[15deg] mt-[200px] roadmap">
               <div className="absolute left-0 translate-y-[-50%]">
-                <div className="relative w-[60px] h-[60px] rounded-[50%] flex justify-center items-center milestone rotate-[-10deg]">
+                <div className="relative w-[60px] h-[60px] rounded-[50%] flex justify-center items-center milestone rotate-[-15deg]">
                   <img src={images.check} alt="check" />
-                  <div className="absolute top-[84px] left-0 w-[260px] sm:w-[400px] bg-dark rounded-[24px] p-4 border border-darkgrey">
+                  <div className="absolute top-[84px] left-0 w-[300px] sm:w-[400px] bg-dark rounded-[24px] p-4 border border-darkgrey">
                     <Text
                       fontColor="gradient"
                       fontSize="24px"
@@ -508,9 +506,9 @@ const Landing = () => {
                 </div>
               </div>
               <div className="absolute left-0 translate-y-[-50%] translate-x-[600px]">
-                <div className="w-[60px] h-[60px] rounded-[50%] flex justify-center border border-[#38393B] bg-[#1C1D1F] items-center rotate-[-10deg]">
+                <div className="w-[60px] h-[60px] rounded-[50%] flex justify-center border border-[#38393B] bg-[#1C1D1F] items-center rotate-[-15deg]">
                   <img src={images.clock} alt="check" />
-                  <div className="absolute top-[84px] left-0 w-[260px] sm:w-[400px] bg-dark rounded-[24px] p-4 border border-darkgrey">
+                  <div className="absolute top-[84px] left-0 w-[300px] sm:w-[400px] bg-dark rounded-[24px] p-4 border border-darkgrey">
                     <Text
                       fontColor="white"
                       fontSize="24px"
@@ -541,9 +539,9 @@ const Landing = () => {
                 </div>
               </div>
               <div className="absolute left-0 translate-y-[-50%] translate-x-[1200px]">
-                <div className="w-[60px] h-[60px] rounded-[50%] flex justify-center border border-[#38393B] bg-[#1C1D1F] items-center rotate-[-10deg]">
+                <div className="w-[60px] h-[60px] rounded-[50%] flex justify-center border border-[#38393B] bg-[#1C1D1F] items-center rotate-[-15deg]">
                   <img src={images.clock} alt="check" />
-                  <div className="absolute top-[84px] left-0 w-[260px] sm:w-[400px] bg-dark rounded-[24px] p-4 border border-darkgrey">
+                  <div className="absolute top-[84px] left-0 w-[300px] sm:w-[400px] bg-dark rounded-[24px] p-4 border border-darkgrey">
                     <Text
                       fontColor="white"
                       fontSize="24px"
@@ -570,9 +568,9 @@ const Landing = () => {
                 </div>
               </div>
               <div className="absolute left-0 translate-y-[-50%] translate-x-[1800px]">
-                <div className="w-[60px] h-[60px] rounded-[50%] flex justify-center items-center border border-[#38393B] bg-[#1C1D1F] rotate-[-10deg]">
+                <div className="w-[60px] h-[60px] rounded-[50%] flex justify-center items-center border border-[#38393B] bg-[#1C1D1F] rotate-[-15deg]">
                   <img src={images.clock} alt="check" />
-                  <div className="absolute top-[84px] left-0 w-[260px] sm:w-[400px] bg-dark rounded-[24px] p-4 border border-darkgrey">
+                  <div className="absolute top-[84px] left-0 w-[300px] sm:w-[400px] bg-dark rounded-[24px] p-4 border border-darkgrey">
                     <Text
                       fontColor="white"
                       fontSize="24px"

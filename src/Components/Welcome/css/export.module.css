@@ -1,9 +1,9 @@
 .cube_anim {
   transform: rotateZ(calc(var(--i, 0) * 5deg)) rotateY(70deg);
-  animation: cube 14400ms linear infinite;
+  animation: cube 60s linear infinite;
   animation-delay: calc(200ms * var(--i));
   animation-timing-function: linear;
-}
+}  
 
 @keyframes cube {
   0%,

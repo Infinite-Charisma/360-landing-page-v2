@@ -6,10 +6,26 @@
   mask-image: url(../../assets/images/mask/mask.png);
 }
 
-.small-mask {
+/* .small-mask {
   mask-image: url(../../assets/images/mask/smallMask.png);
-}
+} */
 
 .perspective {
   perspective: 800px;
 }
+
+/* @media only screen and (min-width: 640px) {
+  .mask {
+    mask-image: url(../../assets/images/mask/mask.png);
+    width: 800px;
+    height: 800px;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .mask {
+    mask-image: url(../../assets/images/mask/mask.png);
+    width: 400px;
+    height: 400px;
+  }
+} */

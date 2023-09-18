@@ -31,7 +31,7 @@ function Background() {
         return (
           <div
             key={key + id}
-            className={`${animation.cube_anim} duration-[16s] absolute h-[400px] w-[400px] sm:h-[800px] sm:w-[800px] path top-0 left-0 ${mask}`}
+            className={`${animation.cube_anim} duration-[60s] absolute path top-0 left-0 mask h-[800px] w-[800px]`}
             style={{ "--i": id } as MyCustomCSS}
           />
         );

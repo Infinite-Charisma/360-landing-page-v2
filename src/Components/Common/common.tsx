@@ -40,8 +40,8 @@ const Button: React.FC<ButtonProps> = ({ label, background, icon }) => {
         className={`px-6 py-4 rounded-[6px] border border-[#38393B] ${bg}`}
       >
         <div className="flex justify-center items-center">
-          {icon && <img src={icon} alt="icon" />}
-          <p className="max-sm:text-[16px] text-[24px] font-semibold leading-[20px] text-white pl-2">
+          {icon && <img src={icon} alt="icon" className="w-[24px] h-[24px] max-sm:w-[16px] max-sm:h-[16px]" />}
+          <p className="max-sm:text-[16px] text-[24px] leading-[24px] text-white pl-2">
             {label}
           </p>
         </div>
@@ -174,11 +174,11 @@ const Tooltip: React.FC<TooltipProps> = ({ label, sublabel, pinColor, pinPositio
     }
   }, [pinPosition]);
   return (
-    <div className="flex justify-between gap-[4px] tooltip p-1 text-[14px] max-w-[100px] sm:w-fit">
+    <div className="flex justify-between gap-[4px] tooltip p-1 text-[12px] max-w-[100px] sm:w-fit">
       <div className="p-1">
-        <p className={`font-bold leading-[14px] text-white ${mgn}`}>{label}</p>
+        <p className={`leading-[14px] text-white ${mgn}`}>{label}</p>
         {
-          sublabel && <p className={`font-normal leading-[12px] pt-1 text-white text-[12px] ${mgn}`}>{sublabel}</p>
+          sublabel && <p className={`font-normal leading-[150%] pt-1 text-white text-[12px] ${mgn}`}>{sublabel}</p>
         }
       </div>
       

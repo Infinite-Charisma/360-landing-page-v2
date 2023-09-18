@@ -1,6 +1,5 @@
 .poster {
-  background: linear-gradient(146deg, rgba(66, 67, 70, 0.15) 0.01%, rgba(53, 57, 69, 0.16) 34.02%, rgba(65, 70, 80, 0.03) 96.06%);
-  backdrop-filter: blur(4px);
+  background: linear-gradient(146deg, rgba(66, 67, 70, 0.15) 0.01%, rgba(53, 57, 69, 0.16) 34.02%, rgba(65, 70, 80, 0.03) 90%);
 }
 
 .progressbar {
