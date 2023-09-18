@@ -1,0 +1,15 @@
+.path {
+  transform-style: preserve-3d;
+}
+
+.mask {
+  mask-image: url(../src/assets/mask.png);
+}
+
+.small-mask {
+  mask-image: url(../src/assets/smallMask.png);
+}
+
+.perspective {
+  perspective: 800px;
+}

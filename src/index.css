@@ -10,8 +10,7 @@
 }
 
 body {
-  background-image: url("../background.png");
-  /* background: #010001; */
+  background: #151317;
   background-size: cover;
   background-repeat: no-repeat;
   margin: 0;

@@ -31,11 +31,13 @@ import { useLangContext } from "../Context/LanguageContext";
 /** Import style*/
 
 import "./Landing.css";
+import Background from "../Components/Welcome/Background";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Landing = () => {
   const main = useRef(null);
+  const mp4 = useRef(null);
   const { t } = useTranslation();
   const { langCode } = useLangContext();
   const [folder, setFolder] = useState<string>("/en_docs");
@@ -204,6 +206,9 @@ const Landing = () => {
   }, []);
 
   useEffect(() => {
+    if (mp4.current) {
+      (mp4.current as any).playbackRate = 0.3;
+    }
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
@@ -214,78 +219,81 @@ const Landing = () => {
       <Header />
       <div className="px-[30px] md:px-[60px] xl:px-[120px]">
         {/* Welcome */}
-        <div
-          id="home"
-          className="flex flex-col justify-center gap-[100px] items-center my-[100px] xl:flex-row xl:justify-between"
-        >
-          <div className="flex flex-col justify-between items-center gap-[50px] xl:items-start">
-            <div className="flex flex-col gap-[16px]">
-              <Text
-                fontColor="white"
-                fontSize={title}
-                fontWeight="bold"
-                lineHight="100%"
-                label={t("Welcome to the future of liquidity")}
-                textAlign={titleAlign}
-              />
-              <Text
-                fontColor="white"
-                fontSize="24px"
-                fontWeight="normal"
-                lineHight="28px"
-                label={t(
-                  "Access liquidity within seconds and open up a world of possibilities to earn."
-                )}
-                textAlign={titleAlign}
-              />
-            </div>
-            <div onClick={handleOpen} className="ease-out duration-200 hover:scale-105">
-              <Button
-                background="prime"
-                label={t("Buy 360")}
-                icon={images.whiteLightning}
-              />
-            </div>
-          </div>
-          <div className="w-full flex justify-center">
-            <img src={images.macbook} alt="macbook" />
-          </div>
-        </div>
-        <div className="flex justify-center">
-          <div className="px-[20px] py-[56px] flex flex-col justify-between gap-[32px] rounded-[10px] max-w-[900px] poster xl:px-[40px]">
-              <div className="absolute top-[10px] left-[20px] p-2 bg-dark border-darkgrey rounded-[8px]">
-                <img src={images.lightning} alt="lightning" />
-              </div>
+        <div className="relative">
+          <div
+            id="home"
+            className="flex flex-col justify-center gap-[100px] items-center my-[100px] xl:flex-row xl:justify-between"
+          >
+            <div className="flex flex-col justify-between items-center gap-[50px] xl:items-start">
               <div className="flex flex-col gap-[16px]">
-                <div className="w-[263px] mx-auto lg:w-[800px]">
-                  <Text
-                    fontColor="white"
-                    fontSize={subtitle}
-                    fontWeight="bold"
-                    lineHight="100%"
-                    label={t("46% OF TOKENS HAVE BEEN SOLD")}
-                    highlightText="46%"
-                    highlightColor="prime"
-                    textAlign="center"
-                  />
-                </div>
-                <div className="w-[263px] mx-auto sm:w-[500px]">
-                  <Text
-                    fontColor="white"
-                    fontSize="20px"
-                    fontWeight="normal"
-                    lineHight="140%"
-                    label={t(
-                      "Take part in the limited pre-sale of 360 tokens."
-                    )}
-                    textAlign="center"
-                  />
-                </div>
+                <Text
+                  fontColor="white"
+                  fontSize={title}
+                  fontWeight="bold"
+                  lineHight="100%"
+                  label={t("Welcome to the future of liquidity")}
+                  textAlign={titleAlign}
+                />
+                <Text
+                  fontColor="white"
+                  fontSize="24px"
+                  fontWeight="normal"
+                  lineHight="28px"
+                  label={t(
+                    "Access liquidity within seconds and open up a world of possibilities to earn."
+                  )}
+                  textAlign={titleAlign}
+                />
               </div>
-              <div className="rounded-[12px] bg-[#292929] progressbar w-[263px] mx-auto h-[24px] sm:w-[376px]">
-                <div className="h-[24px] w-[46%] rounded-[12px]"></div>
+              <div onClick={handleOpen} className="ease-out duration-200 hover:scale-105">
+                <Button
+                  background="prime"
+                  label={t("Buy 360")}
+                  icon={images.whiteLightning}
+                />
               </div>
             </div>
+            <div className="w-full flex justify-center">
+              <img src={images.macbook} alt="macbook" />
+            </div>
+          </div>
+          <div className="flex justify-center">
+            <div className="px-[20px] py-[56px] flex flex-col justify-between gap-[32px] rounded-[10px] max-w-[900px] poster xl:px-[40px]">
+                <div className="absolute top-[10px] left-[20px] p-2 bg-dark border-darkgrey rounded-[8px]">
+                  <img src={images.lightning} alt="lightning" />
+                </div>
+                <div className="flex flex-col gap-[16px]">
+                  <div className="w-[263px] mx-auto lg:w-[800px]">
+                    <Text
+                      fontColor="white"
+                      fontSize={subtitle}
+                      fontWeight="bold"
+                      lineHight="100%"
+                      label={t("Current sales")}
+                      textAlign="center"
+                    />
+                  </div>
+                  <div className="w-[263px] mx-auto sm:w-[500px]">
+                    <Text
+                      fontColor="white"
+                      fontSize={subtitle}
+                      fontWeight="bold"
+                      lineHight="100%"
+                      label={t("round 1")}
+                      highlightText="1"
+                      highlightColor="prime"
+                      textAlign="center"
+                    />
+                  </div>
+                </div>
+                <div className="rounded-[12px] bg-[#292929] progressbar w-[263px] mx-auto h-[24px] sm:w-[376px]">
+                  <div className="h-[24px] w-[46%] rounded-[12px]"></div>
+                </div>
+              </div>
+          </div>
+          <div className="absolute top-0 left-0 z-[-100] flex justify-center items-center">
+            <Background />
+          </div>
         </div>
         {/* Features*/}
         <div
@@ -374,6 +382,9 @@ const Landing = () => {
           id="ecosystem"
           className="my-[150px] flex flex-col gap-[64px] justify-between items-center xl:flex-row relative"
         >
+          <video controls autoPlay muted loop ref={mp4} className="absolute top-0 right-0 left-0 bottom-0 -z-10 scale-y-[2.5]">
+            <source src={images.particles} type="video/mp4"/>
+          </video>
           <div className="flex flex-col">
             <div className="my-4">
               <Text

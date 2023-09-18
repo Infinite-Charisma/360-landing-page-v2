@@ -22,6 +22,7 @@ import x from "../assets/svgs/header/x.svg";
 import menu from "../assets/svgs/header/menu-alt-4.svg";
 import check from "../assets/svgs/roadmap/check.svg";
 import clock from "../assets/svgs/roadmap/clock.svg";
+import particles from "../assets/particleflow.mp4";
 
 export {
   Logo,
@@ -46,5 +47,6 @@ export {
   menu,
   check,
   clock,
-  macbook
+  macbook,
+  particles
 };
