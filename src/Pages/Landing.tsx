@@ -37,7 +37,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Landing = () => {
   const main = useRef(null);
-  const mp4 = useRef(null);
+  // const mp4 = useRef(null);
   const { t } = useTranslation();
   const { langCode } = useLangContext();
   const [folder, setFolder] = useState<string>("/en_docs");
@@ -206,9 +206,9 @@ const Landing = () => {
   }, []);
 
   useEffect(() => {
-    if (mp4.current) {
-      (mp4.current as any).playbackRate = 0.3;
-    }
+    // if (mp4.current) {
+    //   (mp4.current as any).playbackRate = 0.3;
+    // }
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
@@ -382,9 +382,9 @@ const Landing = () => {
           id="ecosystem"
           className="my-[150px] flex flex-col gap-[64px] justify-between items-center xl:flex-row relative"
         >
-          <video controls autoPlay muted loop ref={mp4} className="absolute top-0 right-0 left-0 bottom-0 -z-10 scale-y-[2.5]">
+          {/* <video controls autoPlay muted loop ref={mp4} className="absolute top-0 right-0 left-0 bottom-0 -z-10 scale-y-[2.5]">
             <source src={images.particles} type="video/mp4"/>
-          </video>
+          </video> */}
           <div className="flex flex-col">
             <div className="my-4">
               <Text
