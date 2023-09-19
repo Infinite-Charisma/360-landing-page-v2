@@ -261,12 +261,12 @@ const Landing = () => {
             </div>
           </div>
           <div className="flex justify-center">
-            <div className="px-[20px] py-[56px] flex flex-col justify-between gap-[32px] rounded-[10px] max-w-[900px] poster xl:px-[40px] relative">
+            <div className="px-[10px] py-[56px] flex flex-col justify-between gap-[32px] rounded-[10px] max-w-[900px] poster xl:px-[40px] relative">
                 <div className="absolute top-[10px] left-[20px] p-2 bg-dark border-darkgrey rounded-[8px]">
                   <img src={images.lightning} alt="lightning" />
                 </div>
                 <div className="flex flex-col gap-[16px]">
-                  <div className="w-[263px] mx-auto lg:w-[800px]">
+                  <div className="w-[250px] mx-auto lg:w-[800px]">
                     <Text
                       fontColor="white"
                       fontSize={subtitle}
@@ -276,7 +276,7 @@ const Landing = () => {
                       textAlign="center"
                     />
                   </div>
-                  <div className="w-[263px] mx-auto sm:w-[500px]">
+                  <div className="w-[250px] mx-auto sm:w-[500px]">
                     <Text
                       fontColor="white"
                       fontSize={subtitle}
@@ -289,13 +289,13 @@ const Landing = () => {
                     />
                   </div>
                 </div>
-                <div className="rounded-[12px] bg-[#292929] progressbar w-[263px] mx-auto h-[24px] sm:w-[376px]">
+                <div className="rounded-[12px] bg-[#292929] progressbar w-[250px] mx-auto h-[24px] sm:w-[376px]">
                   <div className="h-[24px] w-[46%] rounded-[12px]"></div>
                 </div>
               </div>
           </div>
           <div className="absolute top-0 left-0 z-[-100] flex justify-center items-center">
-            <Background />
+            {/* <Background /> */}
           </div>
         </div>
         {/* Features*/}
@@ -385,9 +385,6 @@ const Landing = () => {
           id="ecosystem"
           className="my-[150px] flex flex-col gap-[64px] justify-between items-center xl:flex-row relative"
         >
-          {/* <video controls autoPlay muted loop ref={mp4} className="absolute top-0 right-0 left-0 bottom-0 -z-10 scale-y-[2.5]">
-            <source src={images.particles} type="video/mp4"/>
-          </video> */}
           <div className="flex flex-col">
             <div className="my-4">
               <Text
