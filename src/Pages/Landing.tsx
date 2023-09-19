@@ -294,8 +294,8 @@ const Landing = () => {
                 </div>
               </div>
           </div>
-          <div className="absolute top-0 left-0 z-[-100] flex justify-center items-center">
-            {/* <Background /> */}
+          <div className="absolute top-0 z-[-100] flex justify-center items-center left-[20px] md:left-[60px] xl:left-[120px]">
+            <Background />
           </div>
         </div>
         {/* Features*/}
