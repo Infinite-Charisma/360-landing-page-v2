@@ -89,7 +89,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <div className="fixed top-0 left-0">
+      <div className="fixed top-0 left-0 z-50">
         {mobileMode && <MobileHeader close={handleClose} />}
       </div>
     </>

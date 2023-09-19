@@ -26,19 +26,19 @@ export const MobileHeader: React.FC<Props> = ({ close }) => {
       </div>
       <div>
         <ul className="font-semibold leading-[100%]">
-          <li className="w-full px-[32px] py-[24px] text-[20px] border-b border-b-grey">
+          <li className="w-full px-[32px] py-[24px] text-[20px] border-b border-b-grey" onClick={close}>
             <a href="#home">{t("Home")}</a>
           </li>
-          <li className="w-full px-[32px] py-[24px] text-[20px] border-b border-b-grey">
+          <li className="w-full px-[32px] py-[24px] text-[20px] border-b border-b-grey" onClick={close}>
             <a href="#feature">{t("Feature")}</a>
           </li>
-          <li className="w-full px-[32px] py-[24px] text-[20px] border-b border-b-grey">
+          <li className="w-full px-[32px] py-[24px] text-[20px] border-b border-b-grey" onClick={close}>
             <a href="#ecosystem">{t("Ecosystem")}</a>
           </li>
-          <li className="w-full px-[32px] py-[24px] text-[20px] border-b border-b-grey">
+          <li className="w-full px-[32px] py-[24px] text-[20px] border-b border-b-grey" onClick={close}>
             <a href="#roadmap">{t("Roadmap")}</a>
           </li>
-          <li className="w-full px-[32px] py-[24px] text-[20px] border-b border-b-grey">
+          <li className="w-full px-[32px] py-[24px] text-[20px] border-b border-b-grey" onClick={close}>
             <a href="#partners">{t("Partners")}</a>
           </li>
         </ul>

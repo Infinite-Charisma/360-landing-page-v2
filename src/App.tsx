@@ -14,7 +14,7 @@ function App() {
 
   return (
     <GlobalLangContext.Provider value={{ langCode, setLangCode }}>
-      <div className="App max-w-[1800px] mx-auto">
+      <div className="App max-w-[1800px] mx-auto overflow-hidden">
         <Landing />
       </div>
     </GlobalLangContext.Provider>

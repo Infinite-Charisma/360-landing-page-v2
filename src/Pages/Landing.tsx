@@ -444,7 +444,7 @@ const Landing = () => {
           </div>
         </div>
         {/* RoadMap */}
-        <div className="my-[150px]">
+        <div id="roadmap" className="my-[150px]">
           <Text
             fontColor="white"
             fontSize={title}
