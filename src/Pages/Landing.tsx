@@ -6,7 +6,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useTranslation } from "react-i18next";
 import Highcharts from "highcharts";
 import { HighchartsReact } from "highcharts-react-official";
-import Modal from "@mui/material/Modal";
 import { Tilt } from "react-tilt";
 import { Fade } from "react-awesome-reveal";
 
@@ -37,14 +36,12 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Landing = () => {
   const main = useRef(null);
-
   const { t } = useTranslation();
   const { langCode } = useLangContext();
   const [folder, setFolder] = useState<string>("/en_docs");
   const [titleAlign, setTitleAlign] = useState<string>("start");
   const [title, setTitle] = useState<string>("80px");
   const [subtitle, setSubtitle] = useState<string>("32px");
-  const [open, setOpen] = useState(false);
   const [pieChartLength, setPieChartLength] = useState<number>(300);
   const totalOptions = useMemo(() => {
     const _totalOptions: Highcharts.Options = {
@@ -132,18 +129,6 @@ const Landing = () => {
     return _totalOptions;
   }, [pieChartLength]);
 
-  const handleOpen = () => {
-    if (!window.ethereum) {
-      setOpen(true);
-    } else {
-      window.open("https://360dapp.netlify.app/trade");
-    }
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
   const launchDapp = () => {
     window.open("https://360dapp.netlify.app");
   };
@@ -222,81 +207,83 @@ const Landing = () => {
       <Header />
       <div className="mx-[20px] md:mx-[60px] xl:mx-[120px]">
         {/* Welcome */}
-        <div className="relative">
-          <div
-            id="home"
-            className="flex flex-col justify-center gap-[100px] items-center my-[100px] xl:flex-row xl:justify-between"
-          >
-            <div className="flex flex-col justify-between items-center gap-[50px] xl:items-start">
-              <div className="flex flex-col gap-[16px]">
-                <Text
-                  fontColor="white"
-                  fontSize={title}
-                  fontWeight="bold"
-                  lineHight="100%"
-                  label={t("Welcome to the future of liquidity")}
-                  textAlign={titleAlign}
-                />
-                <Text
-                  fontColor="white"
-                  fontSize="24px"
-                  fontWeight="normal"
-                  lineHight="28px"
-                  label={t(
-                    "Access liquidity within seconds and open up a world of possibilities to earn."
-                  )}
-                  textAlign={titleAlign}
-                />
-              </div>
-              <div onClick={handleOpen} className="ease-out duration-200 hover:scale-105">
+        <div
+          id="home"
+          className="flex flex-col justify-center gap-[100px] items-center my-[100px] xl:flex-row xl:justify-between"
+        >
+          <div className="relative flex flex-col justify-between items-center gap-[50px] xl:items-start">
+            <div className="flex flex-col gap-[16px]">
+              <Text
+                fontColor="white"
+                fontSize={title}
+                fontWeight="bold"
+                lineHight="100%"
+                label={t("Welcome to the future of liquidity")}
+                textAlign={titleAlign}
+              />
+              <Text
+                fontColor="white"
+                fontSize="24px"
+                fontWeight="normal"
+                lineHight="28px"
+                label={t(
+                  "Access liquidity within seconds and open up a world of possibilities to earn."
+                )}
+                textAlign={titleAlign}
+              />
+            </div>
+            <div className="ease-out duration-200 hover:scale-105">
+              <a href="https://360dapp.xyz/trade" rel="noreferrer" target="_blank">
                 <Button
                   background="prime"
                   label={t("Buy 360")}
                   icon={images.whiteLightning}
                 />
+              </a>
+            </div>
+            <div className="absolute top-0 left-[-200px] scale-50 bottom-0 right-0 z-[-100] xl:left-[200px] sm:scale-100">
+              <div className="flex justify-center">
+                <Background />
               </div>
             </div>
-            <div className="w-full flex justify-center">
-              <img src={images.macbook} alt="macbook" />
-            </div>
           </div>
-          <div className="flex justify-center">
-            <div className="px-[10px] py-[56px] flex flex-col justify-between gap-[32px] rounded-[10px] max-w-[900px] poster xl:px-[40px] relative">
-                <div className="absolute top-[10px] left-[20px] p-2 bg-dark border-darkgrey rounded-[8px]">
-                  <img src={images.lightning} alt="lightning" />
+          <div className="w-full flex justify-center">
+            <img src={images.macbook} alt="macbook" />
+          </div>
+        </div>
+        <div className="flex justify-center">
+          <div className="px-[10px] py-[56px] flex flex-col justify-between gap-[32px] rounded-[10px] max-w-[900px] poster xl:px-[40px] relative">
+              <div className="absolute top-[10px] left-[20px] p-2 bg-black border-darkgrey rounded-[8px]">
+                <img src={images.lightning} alt="lightning" />
+              </div>
+              <div className="flex flex-col gap-[16px]">
+                <div className="w-[250px] mx-auto lg:w-[800px]">
+                  <Text
+                    fontColor="white"
+                    fontSize={subtitle}
+                    fontWeight="bold"
+                    lineHight="100%"
+                    label={t("Current sales")}
+                    textAlign="center"
+                  />
                 </div>
-                <div className="flex flex-col gap-[16px]">
-                  <div className="w-[250px] mx-auto lg:w-[800px]">
-                    <Text
-                      fontColor="white"
-                      fontSize={subtitle}
-                      fontWeight="bold"
-                      lineHight="100%"
-                      label={t("Current sales")}
-                      textAlign="center"
-                    />
-                  </div>
-                  <div className="w-[250px] mx-auto sm:w-[500px]">
-                    <Text
-                      fontColor="white"
-                      fontSize={subtitle}
-                      fontWeight="bold"
-                      lineHight="100%"
-                      label={t("round 2")}
-                      highlightText="2"
-                      highlightColor="prime"
-                      textAlign="center"
-                    />
-                  </div>
-                </div>
-                <div className="rounded-[12px] bg-[#292929] progressbar w-[250px] mx-auto h-[24px] sm:w-[376px]">
-                  <div className="h-[24px] w-[46%] rounded-[12px]"></div>
+                <div className="w-[250px] mx-auto sm:w-[500px]">
+                  <Text
+                    fontColor="white"
+                    fontSize={subtitle}
+                    fontWeight="bold"
+                    lineHight="100%"
+                    label={t("round 2")}
+                    highlightText="2"
+                    highlightColor="prime"
+                    textAlign="center"
+                  />
                 </div>
               </div>
-          </div>
-          <div className="absolute top-0 z-[-100] flex justify-center items-center left-[20px] md:left-[60px] xl:left-[120px]">
-            <Background />
-          </div>
+              <div className="rounded-[12px] bg-[#292929] progressbar w-[250px] mx-auto h-[24px] sm:w-[376px]">
+                <div className="h-[24px] w-[46%] rounded-[12px]"></div>
+              </div>
+            </div>
         </div>
         {/* Features*/}
         <div
@@ -671,11 +658,13 @@ const Landing = () => {
                   className="mt-[24px] flex justify-center w-fit xl:justify-start ease-out duration-200 hover:scale-105"
                   onClick={launchDapp}
                 >
-                  <Button
-                    background="prime"
-                    label={t("Launch app")}
-                    icon={images.arrowCircle}
-                  />
+                  <a href="https://360dapp.xyz" rel="noreferrer" target="_blank">
+                    <Button
+                      background="prime"
+                      label={t("Launch app")}
+                      icon={images.arrowCircle}
+                    />
+                  </a>
                 </div>
               </div>
             </div>
@@ -743,7 +732,7 @@ const Landing = () => {
           </div>
         </div>
         {/* FAQ */}
-        <div className="my-[150px] xl:flex xl:justify-between xl:gap-[64px]">
+        <div id="faq" className="my-[150px] xl:flex xl:justify-between xl:gap-[64px]">
           <div className="flex flex-col gap-[16px] py-[20px] h-fit xl:min-w-[420px]">
             <Text
               fontColor="white"
@@ -766,56 +755,6 @@ const Landing = () => {
             <FAQ />
           </div>
         </div>
-        {/* Modal */}
-        <Modal
-          open={open}
-          onClose={handleClose}
-          aria-labelledby="child-modal-title"
-          aria-describedby="child-modal-description"
-        >
-          <div className="modal-style w-[80%] xl:w-[60%]">
-            <div className="h-[400px] overflow-y-scroll p-[10px]" id="modal">
-              <p className="text-prime font-bold leading-normal text-base sm:text-[24px] lg:text-[28px] 2xl:text-[32px]">
-                {t("How can I use the Wallet Browser for the 360 Token?")}
-              </p>
-              <div className="text-white leading-normal font-semibold text-[14px] sm:text-[20px] lg:text-[24px] 2xl:text-[28px]">
-                <p>
-                  {t(
-                    "To use the Wallet Browser for the 360 Token, follow these steps:"
-                  )}
-                </p>
-                <br />
-                <ul className="list-disc pl-[20px] sm:pl-[40px]">
-                  <li>
-                    {t(
-                      "Install a compatible wallet browser extension like MetaMask or Trust Wallet"
-                    )}
-                  </li>
-                  <li>
-                    {t("Go to the wallet´s browser and not Google or Safari.")}
-                  </li>
-                  <li>
-                    {t(
-                      "Connect your wallet to our platform by selecting the network Polygon and logging in with your wallet credentials."
-                    )}
-                  </li>
-                  <li>
-                    {t(
-                      "Once connected, you can access the features and functionalities associated with the 360 Token, including buying, selling, and managing your tokens."
-                    )}
-                  </li>
-                </ul>
-                <br />
-              </div>
-              <div
-                className="text-prime text-center font-bold text-[18px] 2xl:text-[24px]"
-                onClick={handleClose}
-              >
-                <p className="hover:cursor-pointer">{t("OK")}</p>
-              </div>
-            </div>
-          </div>
-        </Modal>
       </div>
       <Footer labelSize={title} />
     </>

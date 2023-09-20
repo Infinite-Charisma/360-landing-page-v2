@@ -1,8 +1,12 @@
-import { useTranslation } from "react-i18next";
-import { x } from "../../Const/Images";
-import { Logo } from "../../Const/Images";
-import { Button } from "../Common/common";
+/**import package */
 import React from "react";
+import { useTranslation } from "react-i18next";
+
+/**import const */
+import { x, whiteLightning, Logo } from "../../Const/Images";
+
+/**import component */
+import { Button } from "../Common/common";
 
 interface Props {
   close: () => void;
@@ -22,10 +26,18 @@ export const MobileHeader: React.FC<Props> = ({ close }) => {
         </div>
       </div>
       <div className="px-[32px] py-[16px] border-b border-b-grey">
-        <Button background="prime" label="Affiliate Login" />
+        <a href="https://360dapp.xyz/trade" rel="noreferrer" target="_blank">
+          <div className="hover:scale-105">
+            <Button
+              background="prime"
+              label={t("Buy 360")}
+              icon={whiteLightning}
+            />
+          </div>
+        </a>
       </div>
       <div>
-        <ul className="font-semibold leading-[100%]">
+        <ul className="font-semibold leading-[100%] text-center">
           <li className="w-full px-[32px] py-[24px] text-[20px] border-b border-b-grey" onClick={close}>
             <a href="#home">{t("Home")}</a>
           </li>
@@ -40,6 +52,9 @@ export const MobileHeader: React.FC<Props> = ({ close }) => {
           </li>
           <li className="w-full px-[32px] py-[24px] text-[20px] border-b border-b-grey" onClick={close}>
             <a href="#partners">{t("Partners")}</a>
+          </li>
+          <li className="w-full px-[32px] py-[24px] text-[20px] border-b border-b-grey" onClick={close}>
+            <a href="#faq">{t("FAQ")}</a>
           </li>
         </ul>
       </div>

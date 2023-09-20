@@ -1,10 +1,17 @@
+/**import package*/
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+
+/**import Component */
 import { Button } from "../Common/common";
-import { useLangContext } from "../../Context/LanguageContext";
-import { LANGUAGES } from "../../Const/Languages";
-import { Logo, menu } from "../../Const/Images";
 import { MobileHeader } from "./MobileHeader";
+
+/**import context */
+import { useLangContext } from "../../Context/LanguageContext";
+
+/**import Const */
+import { LANGUAGES } from "../../Const/Languages";
+import { Logo, menu, whiteLightning } from "../../Const/Images";
 
 const Header = () => {
   const { setLangCode } = useLangContext();
@@ -14,6 +21,7 @@ const Header = () => {
   const handleClick = () => {
     setMobileMode(true);
   };
+
   const handleClose = () => {
     setMobileMode(false);
   };
@@ -27,7 +35,7 @@ const Header = () => {
   return (
     <>
       <div className="hidden xl:block">
-        <div className="flex justify-between items-center px-[80px] py-[40px] text-white text-[24px]">
+        <div className="flex justify-between items-center px-[80px] py-[40px] text-white text-base">
           <img src={Logo} alt="logo" className="w-[76px] h-[40px]" />
           <div>
             <ul className="flex gap-[48px]">
@@ -46,9 +54,12 @@ const Header = () => {
               <li>
                 <a href="#partners" className="scroll-smooth cursor-pointer">{t("Partners")}</a>
               </li>
+              <li>
+                <a href="#faq" className="scroll-smooth cursor-pointer">{t("FAQ")}</a>
+              </li>
             </ul>
           </div>
-          <div className="flex gap-[10px] justify-center items-center cursor-pointer">
+          <div className="flex gap-[10px] justify-center items-center cursor-pointer text-base">
             <div>
               <select
                 defaultValue={i18n.language}
@@ -62,7 +73,15 @@ const Header = () => {
                 ))}
               </select>
             </div>
-            <Button background="prime" label={t("Affiliate Login")} />
+            <div className="ease-out duration-200 hover:scale-105">
+              <a href="https://360dapp.xyz/trade" rel="noreferrer" target="_blank">
+                <Button
+                  background="prime"
+                  label={t("Buy 360")}
+                  icon={whiteLightning}
+                />
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -74,7 +93,7 @@ const Header = () => {
           >
             <img src={menu} alt="menu" />
           </div>
-          <div className="text-white text-[20px]">
+          <div className="text-white text-base">
             <select
               defaultValue={i18n.language}
               className="px-6 py-4 bg-[transparent] focus-visible:outline-none"
