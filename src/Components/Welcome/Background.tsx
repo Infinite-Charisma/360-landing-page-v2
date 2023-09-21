@@ -14,7 +14,7 @@ function Background() {
 
   return (
     <div
-      className="min-h-screen w-screen relative perspective"
+      className="w-full h-full relative perspective"
       ref={elecRef}
     >
       {array.map((key, id) => {
