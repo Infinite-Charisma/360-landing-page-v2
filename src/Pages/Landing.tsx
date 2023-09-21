@@ -252,7 +252,7 @@ const Landing = () => {
           </div>
         </div>
         <div className="flex justify-center">
-          <div className="px-[10px] py-[56px] flex flex-col justify-between gap-[32px] rounded-[10px] max-w-[900px] poster xl:px-[40px] relative">
+          <div className="px-[10px] py-[56px] flex flex-col justify-between gap-[32px] rounded-[10px] max-w-[900px] bg-dark xl:px-[40px] relative">
               <div className="absolute top-[10px] left-[20px] p-2 bg-black border-darkgrey rounded-[8px]">
                 <img src={images.lightning} alt="lightning" />
               </div>
