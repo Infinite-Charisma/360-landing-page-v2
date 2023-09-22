@@ -419,7 +419,7 @@ const Landing = () => {
               <p className="text-[30px] font-normal leading-normal text-[#FFF] sm:text-[48px]">
                 {t("Total supply")}
               </p>
-              <p className="text-[30px] chart-gradient font-bold leading-normal sm:text-[48px]">
+              <p className="text-[26px] chart-gradient font-bold leading-normal sm:text-[48px]">
                 1,000,000,000
               </p>
               <p className="font-normal leading-normal text-[#FFF] sm:text-[28px]">
