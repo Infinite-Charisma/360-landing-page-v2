@@ -9,6 +9,7 @@ import innov from "../assets/images/partners/innov.png";
 import scalefy from "../assets/images/partners/scalefy.png";
 import scratch from "../assets/images/partners/scratch.png";
 import zanyShy from "../assets/images/partners/zany_and_shy.png";
+import sphere from "../assets/sphere.mp4";
 
 import lightning from "../assets/svgs/welcome/lightning-bolt.svg";
 import macbook from "../assets/images/welcome/MacBook.png";
@@ -47,4 +48,5 @@ export {
   check,
   clock,
   macbook,
+  sphere
 };
