@@ -241,11 +241,11 @@ const Landing = () => {
                 />
               </a>
             </div>
-            <div className="absolute top-0 left-[-100px] scale-50 bottom-0 right-0 z-[-100] translate-y-[-50%] sm:left-0 sm:scale-80 lg:scale-100 xl:left-[200px]">
+            {/* <div className="absolute top-0 left-[-100px] scale-50 bottom-0 right-0 z-[-100] translate-y-[-50%] sm:left-0 sm:scale-80 lg:scale-100 xl:left-[200px]">
               <div className="flex justify-center w-full h-full">
                 <Background />
               </div>
-            </div>
+            </div> */}
           </div>
           <div className="w-full flex justify-center">
             <img src={images.macbook} alt="macbook" />
