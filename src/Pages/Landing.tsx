@@ -30,7 +30,7 @@ import { useLangContext } from "../Context/LanguageContext";
 /** Import style*/
 
 import "./Landing.css";
-import Background from "../Components/Welcome/Background";
+// import Background from "../Components/Welcome/Background";
 
 gsap.registerPlugin(ScrollTrigger);
 
